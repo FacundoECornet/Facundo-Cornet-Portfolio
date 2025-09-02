@@ -8,7 +8,8 @@ interface Task {
   completed: boolean;
 }
 
-const API_URL = 'http://localhost:5000/tasks';
+// URL relativa para que funcione local y deploy
+const API_URL = '/api/tasks';
 
 export default function Todo() {
   const navigate = useNavigate();
@@ -79,7 +80,7 @@ export default function Todo() {
       </motion.button>
 
       <motion.h2
-        className="text-4xl font-bold mb-8 text-center text-gradient bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400"
+        className="text-4xl font-bold mb-8 text-center bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-blue-400"
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 0.5 }}
