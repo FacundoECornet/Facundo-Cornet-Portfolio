@@ -1,0 +1,75 @@
+@import "tailwindcss";
+
+/* Fondo principal */
+body, html {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: #0f0f0f;
+  color: #e0e0e0;
+  font-family: 'Inter', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Smooth antialiasing y evitar textos borrosos */
+* {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Fondo animado tipo estrellas */
+.background-start {
+  position: fixed;
+  pointer-events: none;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+}
+
+.background-start .star {
+  width: 1px;
+  height: 50px;
+  position: absolute;
+  top: -60px;
+  background: linear-gradient(to top, white, transparent);
+  opacity: 1;
+  filter: drop-shadow(0 0 6px white);
+  border-radius: 50%;
+}
+
+/* Estilos neon consistentes */
+.neon-text {
+  color: #0ff;
+  text-shadow:
+    0 0 5px #0ff,
+    0 0 10px #0ff,
+    0 0 20px #0ff,
+    0 0 40px #0ff;
+}
+
+.neon-card {
+  background: #111;
+  border: 1px solid #0ff;
+  box-shadow: 0 0 10px #0ff80a, 0 0 20px #0ff60f;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.neon-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0 20px #0ff, 0 0 40px #0ff;
+}
+
+.neon-btn {
+  background: #0ff;
+  color: #0f0f0f;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  padding: 0.5rem 1.5rem;
+  box-shadow: 0 0 5px #0ff, 0 0 10px #0ff;
+  transition: all 0.3s ease;
+}
+.neon-btn:hover {
+  box-shadow: 0 0 15px #0ff, 0 0 30px #0ff;
+  transform: scale(1.05);
+}
