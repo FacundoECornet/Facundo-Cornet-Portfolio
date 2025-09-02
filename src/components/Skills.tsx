@@ -21,6 +21,9 @@ export default function Skills() {
     { name: 'Unity (C#)', category: 'gamedev', color: 'from-gray-700 to-purple-600' },
     { name: 'Storybook', category: 'tools', color: 'from-pink-500 to-rose-500' },
     { name: 'Mantine', category: 'frontend', color: 'from-blue-400 to-indigo-500' },
+    { name: 'React Native', category: 'mobile', color: 'from-teal-400 to-cyan-500' },
+    { name: 'Android studio', category: 'mobile', color: 'from-teal-400 to-green-500' },
+    { name: 'Figma', category: 'tools', color: 'from-pink-400 to-purple-500' },
   ];
 
   const categories = {
@@ -29,6 +32,7 @@ export default function Skills() {
     database: { name: 'Database', icon: '🗄️', color: 'blue' },
     tools: { name: 'Tools', icon: '🛠️', color: 'purple' },
     gamedev: { name: 'Game Dev', icon: '🎮', color: 'pink' },
+    mobile: { name: 'Mobile', icon: '📱', color: 'teal' },
   };
 
   // fondo
