@@ -1,4 +1,4 @@
-// server.js
+// backend/server.js
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -13,10 +13,15 @@ app.use(express.json());
 // Base de datos temporal en memoria
 let tasks = [];
 
-// Rutas API
-app.get('/api/tasks', (req, res) => res.json(tasks));
+// Rutas del backend
 
-app.post('/api/tasks', (req, res) => {
+// Obtener todas las tareas
+app.get('/tasks', (req, res) => {
+  res.json(tasks);
+});
+
+// Agregar nueva tarea
+app.post('/tasks', (req, res) => {
   const { text } = req.body;
   if (!text) return res.status(400).json({ error: 'Text is required' });
 
@@ -25,7 +30,8 @@ app.post('/api/tasks', (req, res) => {
   res.status(201).json(newTask);
 });
 
-app.put('/api/tasks/:id', (req, res) => {
+// Marcar tarea como completada o incompleta
+app.put('/tasks/:id', (req, res) => {
   const { id } = req.params;
   const task = tasks.find(t => t.id == id);
   if (!task) return res.status(404).json({ error: 'Task not found' });
@@ -34,17 +40,19 @@ app.put('/api/tasks/:id', (req, res) => {
   res.json(task);
 });
 
-app.delete('/api/tasks/:id', (req, res) => {
+// Eliminar tarea
+app.delete('/tasks/:id', (req, res) => {
   const { id } = req.params;
   tasks = tasks.filter(t => t.id != id);
   res.json({ message: 'Task deleted' });
 });
 
-// Servir React en producción
-app.use(express.static(path.join(__dirname, '../client/dist')));
+// Servir frontend de React
+const distPath = path.join(__dirname, '../dist');
+app.use(express.static(distPath));
 
 app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, '../client/dist', 'index.html'));
+  res.sendFile(path.join(distPath, 'index.html'));
 });
 
 // Iniciar servidor

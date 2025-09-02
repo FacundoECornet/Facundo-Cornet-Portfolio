@@ -8,8 +8,7 @@ interface Task {
   completed: boolean;
 }
 
-// URL relativa para que funcione local y deploy
-const API_URL = '/api/tasks';
+const API_URL = '/tasks'; // No necesitamos localhost en deploy
 
 export default function Todo() {
   const navigate = useNavigate();
@@ -17,7 +16,6 @@ export default function Todo() {
   const [input, setInput] = useState('');
   const [loading, setLoading] = useState(true);
 
-  // Traer tareas al cargar
   useEffect(() => {
     fetch(API_URL)
       .then((res) => res.json())
@@ -25,10 +23,12 @@ export default function Todo() {
         setTasks(data);
         setLoading(false);
       })
-      .catch((err) => console.error(err));
+      .catch((err) => {
+        console.error(err);
+        setLoading(false);
+      });
   }, []);
 
-  // Agregar tarea
   const addTask = async () => {
     if (!input.trim()) return;
     try {
@@ -45,7 +45,6 @@ export default function Todo() {
     }
   };
 
-  // Marcar completada
   const toggleComplete = async (id: number) => {
     try {
       const res = await fetch(`${API_URL}/${id}`, { method: 'PUT' });
@@ -56,7 +55,6 @@ export default function Todo() {
     }
   };
 
-  // Eliminar tarea
   const removeTask = async (id: number) => {
     try {
       await fetch(`${API_URL}/${id}`, { method: 'DELETE' });
