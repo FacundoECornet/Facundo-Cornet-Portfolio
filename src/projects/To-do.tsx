@@ -8,7 +8,8 @@ interface Task {
   completed: boolean;
 }
 
-const API_URL = '/tasks'; // No necesitamos localhost en deploy
+// Apunta a las rutas con /api
+const API_URL = import.meta.env.VITE_API_URL;
 
 export default function Todo() {
   const navigate = useNavigate();
