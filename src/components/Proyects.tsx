@@ -1,13 +1,13 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import useStars from '../Fondo'; // Hook del fondo animado
+import useStars from '../Fondo';
 
 export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null);
   const navigate = useNavigate();
 
-  useStars(); // Fondo de estrellas
+  useStars();
 
   const projects = [
     {
@@ -91,7 +91,7 @@ export default function Projects() {
           </motion.p>
         </motion.div>
 
-        {/* Grid horizontal responsive */}
+        {/* Grid  */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div

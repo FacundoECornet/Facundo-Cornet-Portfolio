@@ -5,28 +5,26 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 5000;
 
-// Middleware CORS para permitir peticiones desde cualquier origen
+//CORS para permitir peticiones desde cualquier origen
 app.use(cors({
-  origin: '*', // o tu dominio de frontend si quieres más seguridad
+  origin: '*', 
   methods: ['GET', 'POST', 'PUT', 'DELETE']
 }));
 
 
-// Middleware para parsear JSON
+//parsear JSON
 app.use(express.json());
 
-// Middleware de logging para depuración
+// depuración
 app.use((req, res, next) => {
   console.log(`${req.method} ${req.url}`);
   next();
 });
 
-// Base de datos temporal en memoria
+// Base de datos temporal 
 let tasks = [];
 
-// =======================
-// RUTAS DEL API
-// =======================
+// Rutas de la API
 
 // Obtener todas las tareas
 app.get('/api/tasks', (req, res) => {
@@ -58,9 +56,6 @@ app.delete('/api/tasks/:id', (req, res) => {
   res.json({ message: 'Task deleted' });
 });
 
-// =======================
-// SERVIR FRONTEND DE REACT
-// =======================
 
 // Asegurarse que la carpeta build/dist exista
 const distPath = path.join(__dirname, '../dist');
@@ -71,9 +66,8 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(distPath, 'index.html'));
 });
 
-// =======================
-// INICIAR SERVIDOR
-// =======================
+
+// Iniciar el servidor
 app.listen(PORT, () => {
   console.log(`Servidor corriendo en el puerto ${PORT}`);
 });

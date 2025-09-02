@@ -82,7 +82,7 @@ export default function GuessNumberGame() {
         </motion.button>
       </div>
 
-      {/* Mensaje con animación */}
+      {/* Mensaje */}
       <AnimatePresence>
         {message && (
           <motion.p

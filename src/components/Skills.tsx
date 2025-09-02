@@ -1,6 +1,6 @@
 import { motion } from 'framer-motion';
 import { useState } from 'react';
-import useStars from '../Fondo'; // Hook del fondo animado
+import useStars from '../Fondo';
 
 export default function Skills() {
   const [, setHoveredSkill] = useState<string | null>(null);
@@ -31,13 +31,13 @@ export default function Skills() {
     gamedev: { name: 'Game Dev', icon: '🎮', color: 'pink' },
   };
 
-  // Inicializar el fondo global de estrellas
+  // fondo
   useStars();
 
   return (
     <section id="skills" className="py-24 relative overflow-hidden">
       <div className="max-w-6xl mx-auto px-6 relative z-10">
-        {/* Título con efecto holográfico */}
+        {/* Título */}
         <motion.div
           className="text-center mb-16"
           initial={{ opacity: 0, y: -30 }}
@@ -58,7 +58,7 @@ export default function Skills() {
           ></motion.div>
         </motion.div>
 
-        {/* Grid de skills por categorías */}
+        {/* Grid de skills */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
           {Object.entries(categories).map(([key, category]) => (
             <motion.div
@@ -100,8 +100,6 @@ export default function Skills() {
                     ))}
                 </div>
               </div>
-
-              {/* Glow effect */}
               <div
                 className={`absolute -inset-0.5 bg-gradient-to-r from-${category.color}-500 to-cyan-500 rounded-xl blur opacity-0 group-hover:opacity-20 transition-opacity duration-300 -z-10`}
               ></div>

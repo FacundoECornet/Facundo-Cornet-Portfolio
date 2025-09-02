@@ -7,7 +7,7 @@ export default function Navbar() {
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/95 backdrop-blur-md border-b border-cyan-500/20 shadow-lg shadow-cyan-500/10 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-        {/* Logo con efecto neón */}
+        {/* Logo*/}
         <h1 className="text-2xl font-bold bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent drop-shadow-lg relative">
           Facundo Cornet
           <div className="absolute inset-0 bg-gradient-to-r from-cyan-400 via-blue-500 to-purple-600 bg-clip-text text-transparent blur-sm opacity-50 -z-10">
@@ -15,7 +15,7 @@ export default function Navbar() {
           </div>
         </h1>
 
-        {/* Botón hamburguesa en mobile */}
+        {/* Botón mobile */}
         <button
           onClick={() => setIsOpen(!isOpen)}
           className="lg:hidden text-gray-300 hover:text-cyan-400 transition-all"
@@ -23,7 +23,7 @@ export default function Navbar() {
           {isOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
 
-        {/* Links de navegación en desktop */}
+        {/* Links de navegación*/}
         <div className="hidden lg:flex space-x-8">
           <a
             href="#hero"
@@ -96,8 +96,6 @@ export default function Navbar() {
           </a>
         </div>
       )}
-
-      {/* Línea decorativa inferior con efecto neón */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-30"></div>
     </nav>
   );

@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion';
-import useStars from '../Fondo'; // Hook del fondo global de estrellas
+import useStars from '../Fondo';
 
 export default function Works() {
-  // Activo el fondo global de estrellas
   useStars();
 
   return (
@@ -87,7 +86,7 @@ export default function Works() {
           </div>
         </motion.div>
 
-        {/* Call to action para nuevos proyectos */}
+        {/* Contacto*/}
         <motion.div
           className="mt-16 text-center"
           initial={{ opacity: 0 }}
