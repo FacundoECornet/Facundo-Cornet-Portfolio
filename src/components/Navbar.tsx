@@ -1,4 +1,9 @@
+import { useState } from 'react';
+import { Menu, X } from 'lucide-react';
+
 export default function Navbar() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <nav className="fixed top-0 left-0 w-full bg-black/95 backdrop-blur-md border-b border-cyan-500/20 shadow-lg shadow-cyan-500/10 z-50">
       <div className="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
@@ -10,8 +15,16 @@ export default function Navbar() {
           </div>
         </h1>
 
-        {/* Links de navegación */}
-        <div className="flex space-x-8">
+        {/* Botón hamburguesa en mobile */}
+        <button
+          onClick={() => setIsOpen(!isOpen)}
+          className="lg:hidden text-gray-300 hover:text-cyan-400 transition-all"
+        >
+          {isOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+
+        {/* Links de navegación en desktop */}
+        <div className="hidden lg:flex space-x-8">
           <a
             href="#hero"
             className="relative text-gray-300 hover:text-cyan-400 transition-all duration-300 group px-3 py-2"
@@ -49,6 +62,40 @@ export default function Navbar() {
           </a>
         </div>
       </div>
+
+      {/* Menú desplegable en mobile */}
+      {isOpen && (
+        <div className="lg:hidden bg-black/95 backdrop-blur-md border-t border-cyan-500/20 px-6 py-4 space-y-4">
+          <a
+            href="#hero"
+            className="block text-gray-300 hover:text-cyan-400 transition-all"
+            onClick={() => setIsOpen(false)}
+          >
+            Inicio
+          </a>
+          <a
+            href="#skills"
+            className="block text-gray-300 hover:text-purple-400 transition-all"
+            onClick={() => setIsOpen(false)}
+          >
+            Skills
+          </a>
+          <a
+            href="#projects"
+            className="block text-gray-300 hover:text-green-400 transition-all"
+            onClick={() => setIsOpen(false)}
+          >
+            Proyectos
+          </a>
+          <a
+            href="#works"
+            className="block text-gray-300 hover:text-yellow-400 transition-all"
+            onClick={() => setIsOpen(false)}
+          >
+            Trabajos
+          </a>
+        </div>
+      )}
 
       {/* Línea decorativa inferior con efecto neón */}
       <div className="absolute bottom-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-cyan-500 to-transparent opacity-30"></div>
