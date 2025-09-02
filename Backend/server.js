@@ -6,7 +6,11 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // Middleware CORS para permitir peticiones desde cualquier origen
-app.use(cors({ origin: '*' }));
+app.use(cors({
+  origin: '*', // o tu dominio de frontend si quieres más seguridad
+  methods: ['GET', 'POST', 'PUT', 'DELETE']
+}));
+
 
 // Middleware para parsear JSON
 app.use(express.json());
