@@ -23,14 +23,14 @@ export default function Projects() {
     },
     {
       name: 'Todo App',
-      subtitle: 'React + TypeScript + Node.js',
+      subtitle: 'React + TypeScript + Node.js + Express',
       description:
         'Aplicación de lista de tareas donde puedes agregar, completar y eliminar tareas. Ideal para mostrar manejo de estado y eventos en React.',
-      technologies: ['React', 'TypeScript', 'TailwindCSS'],
+      technologies: ['React', 'TypeScript', 'Node.js', 'JSON Server'],
       route: '/todo',
       icon: '📝',
       status: 'Completado',
-      difficulty: 'Básico',
+      difficulty: 'Avanzado',
     },
     {
       name: 'Juego Adivina el Número',
